@@ -1,0 +1,8 @@
+[Unit]
+Description=GeoIP ipset + iptables/ip6tables country blocking
+Wants=network-online.target netfilter-persistent.service
+After=network-online.target netfilter-persistent.service
+
+[Service]
+Type=oneshot
+ExecStart=/etc/scripts/geoip-block.sh
