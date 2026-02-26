@@ -1,0 +1,15 @@
+[Unit]
+Description=Run GeoIP block update nightly (randomized)
+
+[Timer]
+OnCalendar=*-*-* 03:15:00
+# zufällige Verzögerung bis 30 Minuten
+RandomizedDelaySec=30m
+
+# verpasste Läufe nachholen (z.B. wenn Server nachts aus war)
+Persistent=true
+
+Unit=geoip-block.service
+
+[Install]
+WantedBy=timers.target
